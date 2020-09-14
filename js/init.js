@@ -43,11 +43,11 @@ var getJSONData = function(url){
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-
+var userEmail;
 document.addEventListener("DOMContentLoaded", function(e){
   const user = localStorage.getItem('user');
-  let userEmail= document.getElementById('userEmail');
-  console.log(userEmail);
+  let userEmail= document.getElementById('user');
+  console.log(user);
 
   userEmail.innerText= user;
 
