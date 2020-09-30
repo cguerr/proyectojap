@@ -1,7 +1,3 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-
 
 function showImagesGallery(array){
 
@@ -29,7 +25,7 @@ function showComments(array){
 
     for(let i = 0; i < array.length; i++){
         let usersComments = array[i];
-        console.log(usersComments);
+        
         
        htmlContentToAppend += `
         <div class="container">
@@ -39,8 +35,34 @@ function showComments(array){
         </div>
         ` 
 
+
         document.getElementById("comentOfAUser").innerHTML = htmlContentToAppend;
     }
+}
+
+
+function showRelatedProducts(array){
+    
+    let htmlContentToAppend = "";
+
+    for(let i=0; i<array.length; i++){
+        if(i == 1 | i == 3){
+        let relatedProd = array[i];
+        
+          
+        htmlContentToAppend += `                                
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="` + relatedProd.imgSrc  + `" alt="">
+            </div>
+        </div>
+        `
+        document.getElementById("relatedProductsImages").innerHTML = htmlContentToAppend;
+
+        }
+      
+    }
+
 }
 
 
@@ -80,6 +102,37 @@ document.addEventListener("DOMContentLoaded", function(e){
              showComments(usersComments);
         }
     })   
+
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+
+        if(resultObj.status === "ok")
+        {
+
+            relatedProd = resultObj.data;
+/*
+            let relatedProductsNameHTML  = document.getElementById("relatedProductsName");
+            let relatedProductsDescriptionHTML = document.getElementById("relatedProductsDescription");
+            let relatedProductsCostHTML = document.getElementById("relatedProductsCost");
+            let relatedProductsCurrencyHTML = document.getElementById("relatedProductsCurrency");
+    //        let relatedProductsImageSrcHTML = document.getElementById("relatedProductImagesGallery")
+            let relatedProductsSoldCountHTML = document.getElementById("relatedProductsSoldCount");
+            
+            
+  
+  
+            relatedProductsNameHTML.innerHTML = relatedProd.name;
+            relatedProductsDescriptionHTML.innerHTML = relatedProd.description;
+            relatedProductsCostHTML.innerHTML = relatedProd.cost;
+            relatedProductsCurrencyHTML.innerHTML = relatedProd.currency;
+        //    relatedProductsImageSrcHTML.innerHTML = relatedProd.imageSrc;
+            relatedProductsSoldCountHTML.innerHTML = relatedProd.soldCount;
+ */
+
+            showRelatedProducts(relatedProd);   
+
+        }
+
+    })
 
 
 });

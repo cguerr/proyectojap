@@ -1,7 +1,9 @@
 const ORDER_ASC_BY_COST = "$->$$";
 const ORDER_DESC_BY_COST = "$$->$";
 const ORDER_BY_PROD_REL = "RR->R";
-var productsArray = [];
+var productsArray = [];                         //estaba asi y la cambio por una const    var productsArray = [];
+//Probando esto: export { productsArray };
+//export { productsArray };
 var currentSortCriteria = undefined;   
 var minCost = undefined;
 var maxCost = undefined;
