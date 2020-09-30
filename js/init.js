@@ -47,7 +47,7 @@ var userEmail;
 document.addEventListener("DOMContentLoaded", function(e){
   const user = localStorage.getItem('user');
   let userEmail= document.getElementById('user');
-  console.log(user);
+//  console.log(user);
 
   userEmail.innerText= user;
 
