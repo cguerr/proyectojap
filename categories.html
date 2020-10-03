@@ -21,8 +21,18 @@
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <a class="py-2 d-none d-md-inline-block" href="login.html">Ingresar</a>
+      <!--  <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <a class="py-2 d-none d-md-inline-block" href="login.html">Ingresar</a>       --> 
+
+        <div>
+          <select name="userOptions" onchange="location = this.value;">
+            <option value="login.html" id="user" class="py-2 d-none d-md-inline-block" selected></option>
+            <option  value="cart.html" id="userCart" class="py-2 d-none d-md-inline-block"> Mi carrito</option>
+            <option value="login.html" id="userLogOut" class="py-2 d-none d-md-inline-block">Salir</option>
+          </select>
+        </div>
+
+
       </div>
     </nav>
     <main role="main" class="pb-5">
