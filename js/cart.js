@@ -2,7 +2,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
- function showCartImages(array){
+/* function showCartImages(array){
     let htmlContentToAppend = "";
 
     for(let i = 0; i < array.length; i++){
@@ -18,13 +18,13 @@
         
         document.getElementById("cartProductImage").innerHTML = htmlContentToAppend; 
     }
-}
+}*/
 
 
 
 document.addEventListener("DOMContentLoaded", function(e){
 
-    getJSONData(CART_INFO_URL).then(function(resultObj){
+    getJSONData(CART_ENTREGABLE).then(function(resultObj){
         if (resultObj.status === "ok"){
            
         cartProduct=resultObj.data.articles;
@@ -35,23 +35,39 @@ document.addEventListener("DOMContentLoaded", function(e){
           let cartProductCountHTML = document.getElementById("cartProductCount");
           let cartProductUnitCostHTML = document.getElementById("cartProductUnitCost");
           let cartProductCurrencyHTML = document.getElementById("cartProductCurrency");
-   
+          let cartProductImgHTML = document.getElementById("cartProductImage").setAttribute("src", cartProduct[0].src);
+
+          
+          let cartProductName1HTML  = document.getElementById("cartProductName1");
+          let cartProductCount1HTML = document.getElementById("cartProductCount1");
+          let cartProductUnitCost1HTML = document.getElementById("cartProductUnitCost1");
+          let cartProductCurrency1HTML = document.getElementById("cartProductCurrency1");
+          let cartProductImg1HTML = document.getElementById("cartProductImage1").setAttribute("src", cartProduct[1].src);
+
           let cartTotalCostHTML = document.getElementById("cartTotalCost");
    
-          
-          
-
+      
           cartProductNameHTML.innerHTML = cartProduct[0].name ;
           cartProductCountHTML.innerHTML = cartProduct[0].count;
           cartProductUnitCostHTML.innerHTML = cartProduct[0].unitCost;
           cartProductCurrencyHTML.innerHTML = cartProduct[0].currency;
+          
+          
 
-          let multiplicacion= 100 * 2 // Intento hacer esto pero da NaN y no lo puedo subir a git con ese error
-                                      //  cartProductCountHTML * cartProductUnitCostHTML;
+          cartProductName1HTML.innerHTML = cartProduct[1].name ;
+          cartProductCount1HTML.innerHTML = cartProduct[1].count;
+          cartProductUnitCost1HTML.innerHTML = cartProduct[1].unitCost;
+          cartProductCurrency1HTML.innerHTML = cartProduct[1].currency;  
+          
+
+        
+            let conversion = cartProduct[1].unitCost * 40;
+            let multiplicacion = cartProduct[0].count * cartProduct[0].unitCost + cartProduct[1].count * conversion;
+            console.log(multiplicacion);
 
           cartTotalCostHTML.innerHTML= multiplicacion;
         
-          showCartImages(cartProduct);
+         // showCartImages(cartProduct);
           
         }
     })

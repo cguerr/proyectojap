@@ -47,14 +47,9 @@
   <div class="container p-5">
     <div  role="alert" style="position: relative; width:auto; top: 0;">
       <h2>Mi carrito</h2>
-     <!-- <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    !-->
 
 
-<!--ACA VOY A METER TODA LA ESTRUCTURA HTML PARA SOPORTAR EL JSON-->
-
+<!-- PRODUCTO 1 -->
 <dl>
   <dt>Nombre de Producto</dt>
   <dd>
@@ -77,12 +72,60 @@
   </dd>
 
   <dt>Imágenes</dt>
+      <!-- <dd>
+       
+        <img src= "" class="img-fluid img-thumbnail" id="cartProductImage" alt="">
+        
+      </dd> -->
       <dd>
-        <div class="row text-center text-lg-left pt-2" id="cartProductImage">
-        </div>
+        <div class="list-group-item list-group-item-action">
+          <div class="row">
+              <div class="col-3">
+     
+          <img src= "" class="img-fluid img-thumbnail" id="cartProductImage" alt="">
+     </div>
+    </div>
+  </div>
+  
       </dd>
 
-    </div>
+
+<!--     PRODUCTO 2 -->
+      <dl>
+        <dt>Nombre de Producto</dt>
+        <dd>
+          <p id="cartProductName1"></p>
+        </dd>
+      
+        <dt>Cantidad</dt>
+        <dd>
+          <p id="cartProductCount1"></p>
+        </dd>
+      
+        <dt>Precio unitario</dt>
+        <dd>
+          <p id="cartProductUnitCost1"></p>
+        </dd>
+      
+        <dt>Moneda</dt>
+        <dd>
+          <p id="cartProductCurrency1"></p>
+        </dd>
+      
+        <dt>Imágenes</dt>
+            <dd>
+              <div class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+           
+                <img src= "" class="img-fluid img-thumbnail" id="cartProductImage1" alt="">
+           </div>
+          </div>
+        </div>
+        
+            </dd> 
+
+    </div>    
   
 
   <div>
@@ -90,7 +133,58 @@
     <p id="cartTotalCost"></p>
   </div>
   
+ </div>
+<!-- Desde aca 
+<div>
+  <div class="list-group-item list-group-item-action">
+      <div class="row" id="">
+          <div class="col-3">
+              <img src="" alt="" id="cartProductImage" class="img-thumbnail">
+          </div>
+          <div class="col">
+              <div class="d-flex w-100 justify-content-between">
+              <a href="product-info.html" class="list-item-action"><h4 id="cartProductName" class="mb-1"></h4></a>
+                  <div>
+                  <p id="cartProductUnitCost" class="mb-1">Precio: </p>
+                  <p class="mb-1">Unidades: <span id="cartProductCount" class="quantity"></span></p>
+                  <button type="button" class="btn btn-primary btn-minus" data-quantity="" data-price="" data-id="">-</button>
+                  <button type="button" class="btn btn-primary btn-plus" data-quantity="" data-price="" data-id="">+</button>
+                  </div>
+              </div>
+              <p class="mb-1"></p>
+              <p class="mb-1">SubTotal: <span class="currency"></span> <span class="subtotal">  </span></p>                        
+          </div>
+      </div>
+  </div>
 </div>
+ Hasta aca-->
+
+<!-- Desde aca  
+<div>
+  <div class="list-group-item list-group-item-action">
+      <div class="row" id="">
+          <div class="col-3">
+              <img src="" alt="" id="cartProductImage1" class="img-thumbnail">
+          </div>
+          <div class="col">
+              <div class="d-flex w-100 justify-content-between">
+              <a href="product-info.html" class="list-item-action"><h4 id="cartProductName1" class="mb-1"></h4></a>
+                  <div>
+                  <p id="cartProductUnitCost1" class="mb-1">Precio: </p>
+                  <p class="mb-1">Unidades: <span id="cartProductCount1" class="quantity"></span></p>
+                  <button type="button" class="btn btn-primary btn-minus" data-quantity="" data-price="" data-id="">-</button>
+                  <button type="button" class="btn btn-primary btn-plus" data-quantity="" data-price="" data-id="">+</button>
+                  </div>
+              </div>
+              <p class="mb-1"></p>
+              <p class="mb-1">SubTotal: <span class="currency"></span> <span class="subtotal">  </span></p>                        
+          </div>
+      </div>
+  </div>
+</div>
+  </div>
+
+   Hasta aca-->
 
   <div id="spinner-wrapper">
     <div class="lds-ring">
