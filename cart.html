@@ -40,8 +40,15 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block" href="login.html">Ingresar</a>
+      
+      <div>
+        <select name="userOptions" onchange="location = this.value;">
+          <option value="login.html" id="user" class="py-2 d-none d-md-inline-block" selected></option>
+          <option value="cart.html" id="userCart" class="py-2 d-none d-md-inline-block"> Mi carrito</option>
+          <option value="login.html" id="userLogOut" class="py-2 d-none d-md-inline-block">Salir</option>
+        </select>
+      </div>  
+
     </div>
   </nav>
   <div class="container p-5">
@@ -132,60 +139,7 @@
     <p><strong>Costo total: </strong></p>
     <p id="cartTotalCost"></p>
   </div>
-  
- 
- 
-<!-- Desde aca 
-<div>
-  <div class="list-group-item list-group-item-action">
-      <div class="row" id="">
-          <div class="col-3">
-              <img src="" alt="" id="cartProductImage" class="img-thumbnail">
-          </div>
-          <div class="col">
-              <div class="d-flex w-100 justify-content-between">
-              <a href="product-info.html" class="list-item-action"><h4 id="cartProductName" class="mb-1"></h4></a>
-                  <div>
-                  <p id="cartProductUnitCost" class="mb-1">Precio: </p>
-                  <p class="mb-1">Unidades: <span id="cartProductCount" class="quantity"></span></p>
-                  <button type="button" class="btn btn-primary btn-minus" data-quantity="" data-price="" data-id="">-</button>
-                  <button type="button" class="btn btn-primary btn-plus" data-quantity="" data-price="" data-id="">+</button>
-                  </div>
-              </div>
-              <p class="mb-1"></p>
-              <p class="mb-1">SubTotal: <span class="currency"></span> <span class="subtotal">  </span></p>                        
-          </div>
-      </div>
-  </div>
-</div>
- Hasta aca-->
 
-<!-- Desde aca  
-<div>
-  <div class="list-group-item list-group-item-action">
-      <div class="row" id="">
-          <div class="col-3">
-              <img src="" alt="" id="cartProductImage1" class="img-thumbnail">
-          </div>
-          <div class="col">
-              <div class="d-flex w-100 justify-content-between">
-              <a href="product-info.html" class="list-item-action"><h4 id="cartProductName1" class="mb-1"></h4></a>
-                  <div>
-                  <p id="cartProductUnitCost1" class="mb-1">Precio: </p>
-                  <p class="mb-1">Unidades: <span id="cartProductCount1" class="quantity"></span></p>
-                  <button type="button" class="btn btn-primary btn-minus" data-quantity="" data-price="" data-id="">-</button>
-                  <button type="button" class="btn btn-primary btn-plus" data-quantity="" data-price="" data-id="">+</button>
-                  </div>
-              </div>
-              <p class="mb-1"></p>
-              <p class="mb-1">SubTotal: <span class="currency"></span> <span class="subtotal">  </span></p>                        
-          </div>
-      </div>
-  </div>
-</div>
-  </div>
-
-   Hasta aca-->
 
   <div>
 <form onsubmit="">
@@ -197,7 +151,7 @@
 <input type="radio" id="standard" name="gender" value="standard">
 <label for="standard">Standard</label>
 </form>
-<button onclick="getChosenShipping()">Try it</button>
+<button onclick="getChosenShipping()">Calcular precio final</button>
 <p id="costToPay"></p>
   </div> 
    
@@ -216,55 +170,120 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      <!--  <p id="costToPay"></p>  Por si quiero poner el costo total + envío dentro del modal-->
+
       </div>
             
       <div class="modal-body">
-   
-        <div id="creditCardDiv">
-        <input type="text" id="creditCardNumber" value="Número de tarjeta">
-         
-          <select name="expirationMonthCard" id="expirationMonth">
-          <option value="month" selected>Mes</option>
-          <option value="jen">jen</option>
-          <option value="feb">feb</option>
-          <option value="mar">mar</option>
-          <option value="apr">apr</option>
-          <option value="may">may</option>
-          <option value="jun">jun</option>
-          <option value="jul">jul</option>
-          <option value="aug">aug</option>
-          <option value="sep">sep</option>
-          <option value="oct">oct</option>
-          <option value="nov">nov</option>
-          <option value="dec">dec</option>
-        </select>
 
-        <select name="expirationYearCard" id="expirationYear">
-          <option value="year" selected>Año</option>
-          <option value="2020">2020</option>
-          <option value="2021">2021</option>
-          <option value="2022">2022</option>
-          <option value="2023">2023</option>
-          <option value="2024">2024</option>
-          <option value="2025">2025</option>
-          <option value="2026">2026</option>
-          <option value="2027">2027</option>
-          <option value="2028">2028</option>
-          <option value="2029">2029</option>
-          <option value="2030">2030</option>
-          <option value="2031">2031</option>
-        </select>
-       
-        <input type="text" id="ccvNumber" value="CCV">
-
+ <form class="needs-validation" novalidate>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      
+      <label for="creditCardNumber">Número de tarjeta</label>
+      <input type="number" class="form-control" id="creditCardNumber" required>
+      <div class="valid-feedback">
+        
       </div>
-
+    </div>
+    <div class="col-md-6 mb-3"> 
+      
+      <label for="expirationMonth">Mes vencimiento</label>
+      <select class="custom-select" name="expirationMonthCard" id="expirationMonth" required>
+        <option selected disabled value="">Mes</option>
+        <option value="jen">jen</option>
+        <option value="feb">feb</option>
+        <option value="mar">mar</option>
+        <option value="apr">apr</option>
+        <option value="may">may</option>
+        <option value="jun">jun</option>
+        <option value="jul">jul</option>
+        <option value="aug">aug</option>
+        <option value="sep">sep</option>
+        <option value="oct">oct</option>
+        <option value="nov">nov</option>
+        <option value="dec">dec</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      
+      <label for="expirationYear">Año vencimiento</label>
+      <select class="custom-select" name="expirationYearCard" id="expirationYear" required>
+        <option selected disabled value="">Año</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+        <option value="2029">2029</option>
+        <option value="2030">2030</option>
+        <option value="2031">2031</option>
+      </select>
+      <div class="invalid-feedback">
+        
       </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+      
+      <label for="ccvNumber">CCV</label>
+      <input type="number" class="form-control" id="ccvNumber" required>
+      <div class="invalid-feedback">
+        
+      </div>
+      
+    </div>
+   </div>
+
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+        Acepto términos y condiciones
+      </label>
+      <div class="invalid-feedback">
+        Debes aceptar antes de enviar.
+      </div>
+    </div>
+  </div>
+  </div>
+    
+  <!-- CODIGO JS PARA VALIDACION DEL FORM DEL MODAL DE TJ DE CREDITO -->
+  
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
+  
+
+
+
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
       </div>
+    </form>
     </div>
   </div>
 </div>
@@ -285,27 +304,89 @@
         </button>
       </div>
       <div class="modal-body">
-        <div id="bankAccountDiv">
-          
-          <label for="bankAccountOption">Pago con cuenta bancaria</label>
-          <div>
-          <input type="text" id="ownerName" value="Nombre completo">
+    
+        <form class="needs-validation" novalidate>
+          <div class="form-row">
+
+            <div class="col-md-6 mb-3">
+              
+              <label for="ownerName">Nombre completo</label>
+              <input type="text" class="form-control" id="ownerName" required>
+              <div class="valid-feedback">
+                
+              </div>
+            </div>
+
+
+            <div class="col-md-6 mb-3">
+              
+              <label for="accountNumber">Número de cuenta</label>
+              <input type="number" class="form-control" id="accountNumber" required>
+              <div class="valid-feedback">
+                
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              
+              <label for="emailBankAccount">E-mail</label>
+              <input type="email" class="form-control" id="emailBankAccount" required>
+              <div class="valid-feedback">
+                
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              
+              <label for="telephoneBankAccount">Teléfono</label>
+              <input type="number" class="form-control" id="telephoneBankAccount" required>
+              <div class="valid-feedback">
+                
+              </div>
+            </div>
+            
+        
+            </div>
+        
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <label class="form-check-label" for="invalidCheck">
+                Acepto términos y condiciones
+              </label>
+              <div class="invalid-feedback">
+                Debes aceptar antes de enviar.
+              </div>
+            </div>
           </div>
-          <div>
-          <input type="text" id="accountNumber" value="Numero de cuenta">
-        </div>
-        <div>
-          <input type="text" id="emailBankAccount" value="Email">
-        </div>
-        <div>
-          <input type="text" id="telephoneBankAccount" value="Teléfono">
-        </div>
-  
-        </div> 
-      </div>
+          </div>
+          <!-- CODIGO JS PARA VALIDACION DEL FORM DEL MODAL DE TJ DE CREDITO -->
+          
+          <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
+            </script>   
+         
+       
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
       </div>
     </div>
   </div>
