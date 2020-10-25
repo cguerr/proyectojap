@@ -133,7 +133,8 @@
     <p id="cartTotalCost"></p>
   </div>
   
- </div>
+ 
+ 
 <!-- Desde aca 
 <div>
   <div class="list-group-item list-group-item-action">
@@ -185,6 +186,133 @@
   </div>
 
    Hasta aca-->
+
+  <div>
+<form onsubmit="">
+<p><strong>Seleccione un método de envío</strong></p>
+<input type="radio" id="premium" name="gender" value="premium">
+<label for="premium">Premium</label><br>
+<input type="radio" id="express" name="gender" value="express">
+<label for="express">Express</label><br>
+<input type="radio" id="standard" name="gender" value="standard">
+<label for="standard">Standard</label>
+</form>
+<button onclick="getChosenShipping()">Try it</button>
+<p id="costToPay"></p>
+  </div> 
+   
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Pago con tarjeta
+</button>
+
+<!-- Modal TARJETA DE CREDITO -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Pago con tarjeta de crédito</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <!--  <p id="costToPay"></p>  Por si quiero poner el costo total + envío dentro del modal-->
+      </div>
+            
+      <div class="modal-body">
+   
+        <div id="creditCardDiv">
+        <input type="text" id="creditCardNumber" value="Número de tarjeta">
+         
+          <select name="expirationMonthCard" id="expirationMonth">
+          <option value="month" selected>Mes</option>
+          <option value="jen">jen</option>
+          <option value="feb">feb</option>
+          <option value="mar">mar</option>
+          <option value="apr">apr</option>
+          <option value="may">may</option>
+          <option value="jun">jun</option>
+          <option value="jul">jul</option>
+          <option value="aug">aug</option>
+          <option value="sep">sep</option>
+          <option value="oct">oct</option>
+          <option value="nov">nov</option>
+          <option value="dec">dec</option>
+        </select>
+
+        <select name="expirationYearCard" id="expirationYear">
+          <option value="year" selected>Año</option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+          <option value="2027">2027</option>
+          <option value="2028">2028</option>
+          <option value="2029">2029</option>
+          <option value="2030">2030</option>
+          <option value="2031">2031</option>
+        </select>
+       
+        <input type="text" id="ccvNumber" value="CCV">
+
+      </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bankAccountModal">
+  Pago con cuenta bancaria
+</button>
+
+<!-- Modal CUENTA BANCARIA -->
+<div class="modal fade" id="bankAccountModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bankAccountModalLabel">Pago con cuenta bancaria</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="bankAccountDiv">
+          
+          <label for="bankAccountOption">Pago con cuenta bancaria</label>
+          <div>
+          <input type="text" id="ownerName" value="Nombre completo">
+          </div>
+          <div>
+          <input type="text" id="accountNumber" value="Numero de cuenta">
+        </div>
+        <div>
+          <input type="text" id="emailBankAccount" value="Email">
+        </div>
+        <div>
+          <input type="text" id="telephoneBankAccount" value="Teléfono">
+        </div>
+  
+        </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div> <!--cierre de div container-->
 
   <div id="spinner-wrapper">
     <div class="lds-ring">

@@ -1,7 +1,3 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-
 /* function showCartImages(array){
     let htmlContentToAppend = "";
 
@@ -20,7 +16,7 @@
     }
 }*/
 
-
+let cartTotalCostHTML;
 
 document.addEventListener("DOMContentLoaded", function(e){
 
@@ -44,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function(e){
           let cartProductCurrency1HTML = document.getElementById("cartProductCurrency1");
           let cartProductImg1HTML = document.getElementById("cartProductImage1").setAttribute("src", cartProduct[1].src);
 
-          let cartTotalCostHTML = document.getElementById("cartTotalCost");
+              cartTotalCostHTML = document.getElementById("cartTotalCost");
    
       
           cartProductNameHTML.innerHTML = cartProduct[0].name ;
@@ -63,15 +59,63 @@ document.addEventListener("DOMContentLoaded", function(e){
         
             let conversion = cartProduct[1].unitCost * 40;
             let multiplicacion = cartProduct[0].count * cartProduct[0].unitCost + cartProduct[1].count * conversion;
-            console.log(multiplicacion);
-
+            
           cartTotalCostHTML.innerHTML= multiplicacion;
         
          // showCartImages(cartProduct);
           
         }
     })
-
  });
 
+  
+ //CALCULO DE ENVÍO
+/*
+ function calculoEnvio(){
+     //voy a preguntar, if el radio button seleccionado == tal hacer este calculo, else hacer este otro calculo, else hacer este otro calculo. Y el resultado mostrarlo en un espacio HTML para este valor
+     let radioValue = document.getElementsByName('gender');
+     console.log(radioValue);
+   for(let i=0; i< radioValue.length; i++){
+         if(radioValue[i].checked == premium ){ // '.checked' no me lo da, es de alguna librería ????
+        //ACA LE METO EL CALCULO CORRESPONDIENTE
+        }   
+
+        
+
+     } 
+
+     
+ }
+*/
+
+
+function getChosenShipping(){
+
+    let radioValues = document.getElementsByName('gender');
+    let valueSelected;
+
+  for(let i=0; i< radioValues.length; i++){
+      if(radioValues[i].checked){ 
+       valueSelected = radioValues[i].value;
+       } 
+    } 
+console.log(valueSelected);
+costoEnvio(valueSelected);    
+}
  
+
+let shippingCost;
+function costoEnvio(valueSelected){
+   
+    if(valueSelected == 'premium'){
+        shippingCost = (15 * cartTotalCostHTML.innerHTML / 100) + Number(cartTotalCostHTML.innerHTML);
+    }
+    else if(valueSelected == 'express'){
+        shippingCost = (7 * cartTotalCostHTML.innerHTML / 100) + Number(cartTotalCostHTML.innerHTML);
+    }
+    else{
+        shippingCost = (5 * cartTotalCostHTML.innerHTML / 100) + Number(cartTotalCostHTML.innerHTML);
+    }
+
+    document.getElementById('costToPay').innerHTML = shippingCost;
+}
