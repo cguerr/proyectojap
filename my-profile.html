@@ -40,22 +40,60 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      
+      <div>
+        <select class="py-2 d-none d-md-inline-block" name="userOptions" onchange="location = this.value;">
+      <!-- <option value="" id="myProfile" class="py-2 d-none d-md-inline-block" selected>Mi perfil</option> -->
+          <option value="login.html" id="user" selected></option> <!--ACA EN VEZ DE IR A LOGIN.HTML QUE VAYA A MY -->
+          <option value="my-profile.html" id="userProfile" >Mi perfil</option>
+          <option  value="cart.html" id="userCart" > Mi carrito</option>
+          <option value="login.html" id="userLogOut" >Salir</option>
+        </select>
+      </div>
+
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
+   <div class="container p-5">
+  <!--  <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>
       <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
       <hr>
       <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    </div> -->
+    
+    <h2 class="col-md-6 mb-3">Mi perfil</h2>
+    <form id="userInfoForm">
+      <div class="col-md-6 mb-3">
+        <label for="completeNameInput">Nombre completo</label>
+        <input type="text" class="form-control" id="completeNameInput" placeholder="Juan Perez Rodriguez">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="edgeInput">Edad</label>
+        <input type="number" class="form-control" id="edgeInput" min="1" max="99" placeholder="35"> 
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="emailInput">E-mail</label>
+        <input type="email" class="form-control" id="emailInput" placeholder="juanperez@gmail.com"> <!--ESTO MEJOR QUE LO TOME DEL LOGIN-->
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="phoneInput">Teléfono</label>
+        <input type="number" class="form-control" id="phoneInput" placeholder="095700575">
+      </div>
+      <div class="col-md-6 mb-3">
+      <button id ="botonform" type="submit" class="btn btn-primary">Guardar cambios</button>
+      <button type="button" class="btn btn-primary" data-dismiss="form">Reiniciar</button> <!--DARLE FUNCIONALIDAD-->
     </div>
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
+    </form>
+
+    
+
+
+  </div> <!--Cierre container-->
+  <footer>
+  <!--  <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
+    </div>  -->
   </footer>
   <div class="alert fade alert-success" role="alert" id="alertResult">
     <span id="resultSpan"></span>

@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         e.preventDefault();
         const userEmail= document.getElementById("user").value;
         localStorage.setItem("user", userEmail);
-        window.location.href="/";
+        window.location.href="index.html";
         //console.log(user);
     }
     

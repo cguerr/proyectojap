@@ -22,7 +22,17 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      
+      <div>
+        <select class="py-2 d-none d-md-inline-block" name="userOptions" onchange="location = this.value;">
+      <!-- <option value="" id="myProfile" class="py-2 d-none d-md-inline-block" selected>Mi perfil</option> -->
+          <option value="login.html" id="user" selected></option> <!--ACA EN VEZ DE IR A LOGIN.HTML QUE VAYA A MY -->
+          <option value="my-profile.html" id="userProfile" >Mi perfil</option>
+          <option  value="cart.html" id="userCart" > Mi carrito</option>
+          <option value="login.html" id="userLogOut" >Salir</option>
+        </select>
+      </div>
+
     </div>
   </nav>
   <main role="main">
